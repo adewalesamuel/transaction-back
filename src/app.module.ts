@@ -14,8 +14,8 @@ import { TransactionsModule } from './interface/modules/transactions.module';
     UsersModule,
     TransactionsModule,
     SequelizeModule.forRoot({
-      dialect: 'mysql',
-      host: (process.env.DB_HOST as Dialect) ?? 'mysql',
+      dialect: (process.env.DB_DIALECT as Dialect) ?? 'postgresql',
+      host: process.env.DB_HOST ?? 'localhost',
       port: Number(process.env.DB_PORT) ?? 3306,
       username: process.env.DB_USER ?? '',
       password: process.env.DB_PASSWORD ?? '',
